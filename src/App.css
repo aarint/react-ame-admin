@@ -1,28 +1,83 @@
+@import '~antd/dist/antd.css';
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.container .logo {
+    height: 32px;
+    line-height: 32px;
+    border-radius: 6px;
+    margin: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.container .logo img {
+    vertical-align: middle;
+    width: 32px;
+}
+
+.container .logo .title {
+    vertical-align: middle;
+    line-height: 32px;
+    color: #FFFFFF;
+    padding-left: 5px;
+    font-size: 18px;
+    -webkit-transition: opacity .3s ease-in-out, width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity .3s ease-in-out, width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.container .logo .logo_collapsed {
+    max-width: 0;
+    display: inline-block;
+    opacity: 0;
+}
+
+.container .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 16px;
+    cursor: pointer;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+}
+
+.container .trigger:hover {
+    color: #108ee9;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
