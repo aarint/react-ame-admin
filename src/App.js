@@ -39,22 +39,22 @@ class App extends Component {
             defaultOpenKeys={(obj && obj.openKeys) || []}
             selectedKeys={(obj && obj.selectedKeys) || []}
             onClick={this.onClick}>
-            <Menu.Item key="list">
-              <Link to={'/list'}>
-                <Icon type="user" />
-                <span>List</span>
-              </Link>
+            <Menu.Item key="dashboard">
+              <Link to={'/'}><Icon type="dashboard" /><span>Dashboard</span></Link>
             </Menu.Item>
-            <Menu.SubMenu key="role" title={<span><Icon type='solution' /><span>Role</span></span>}>
-              <Menu.Item key='data'><Link to={'/role/data'}>Data</Link></Menu.Item>
-              <Menu.Item key='menu'><Link to={'/role/menu'}>Menu</Link></Menu.Item>
-            </Menu.SubMenu>
-            <Menu.SubMenu key="map" title={<span><Icon type='solution' /><span>Map</span></span>}>
+            <Menu.Item key="list">
+              <Link to={'/list'}><Icon type="table" /><span>List</span></Link>
+            </Menu.Item>
+            <Menu.SubMenu key="map" title={<span><Icon type='global'/><span>Map</span></span>}>
               <Menu.Item key="base"><Link to={'/map/base'}>Base</Link></Menu.Item>
               <Menu.Item key="mapv"><Link to={'/map/mapv'}>Mapv</Link></Menu.Item>
             </Menu.SubMenu>
-            <Menu.SubMenu key="echarts" title={<span><Icon type='solution' /><span>Echarts</span></span>}>
+            <Menu.SubMenu key="echarts" title={<span><Icon type='area-chart' /><span>Echarts</span></span>}>
               <Menu.Item key="samples"><Link to={'/echarts/samples'}>Samples</Link></Menu.Item>
+            </Menu.SubMenu>
+            <Menu.SubMenu key="role" title={<span><Icon type='solution'/><span>Role</span></span>}>
+              <Menu.Item key='data'><Link to={'/role/data'}>Data</Link></Menu.Item>
+              <Menu.Item key='menu'><Link to={'/role/menu'}>Menu</Link></Menu.Item>
             </Menu.SubMenu>
             <Menu.Item key="setting">
               <Link to={'/setting'}>
@@ -79,8 +79,8 @@ class App extends Component {
             </div>
           </Header>
           <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }} separator=">">
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb style={{ margin: '16px 0',color:'#000000' }} separator=">">
+              <Breadcrumb.Item><Icon type="home"/></Breadcrumb.Item>
               {this.constructBreadCrumb(menus, (obj && obj.keyPath))}
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 280 }}>
