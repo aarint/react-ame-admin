@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import { Layout, Menu, Icon, Breadcrumb } from 'antd';
-
+import { changeBreadCrumbData, getCurrentBreadCrumbData } from "./redux/actions/Common";
 import { URL_POST_PLATFORM_LOGOUT } from './utils/ConstantUtil'
 
 import './App.css';
@@ -13,16 +14,19 @@ class App extends Component {
   state = {
     collapsed: false,
     menus: [
-      { key: 'user', value: '员工' },
-      { key: 'role', value: '角色', children: [{ key: 'data', value: '数据' }, { key: 'menu', value: '菜单' }] },
-      { key: 'auth', value: '权限', children: [{ key: 'platform', value: '空间平台' }] },
-      { key: 'setting', value: '设置' }
+      { key: 'list', value: 'List' },
+      { key: 'role', value: 'Role', children: [{ key: 'data', value: 'Data' }, { key: 'menu', value: 'Menu' }] },
+      { key: 'map', value: 'Map', children: [{ key: 'base', value: 'Base' }, { key: 'mapv', value: 'Mapv' }] },
+      { key: 'echarts', value: 'Echarts', children: [{ key: 'samples', value: 'Samples' }] },
+      { key: 'auth', value: 'Auth', children: [{ key: 'platform', value: 'Platform' }] },
+      { key: 'setting', value: 'Setting' }
     ]
   }
 
   render() {
     const { collapsed, menus } = this.state;
-    let obj = null;
+    const { currentCrumb } = this.props;
+    let obj = JSON.parse(sessionStorage.getItem("currentCrumb")) || currentCrumb;
 
     return (
       <Layout className="ant-layout-has-sider container">
@@ -35,15 +39,22 @@ class App extends Component {
             defaultOpenKeys={(obj && obj.openKeys) || []}
             selectedKeys={(obj && obj.selectedKeys) || []}
             onClick={this.onClick}>
-            <Menu.Item key="user">
-              <Link to={'/user'}>
+            <Menu.Item key="list">
+              <Link to={'/list'}>
                 <Icon type="user" />
-                <span>Employees</span>
+                <span>List</span>
               </Link>
             </Menu.Item>
             <Menu.SubMenu key="role" title={<span><Icon type='solution' /><span>Role</span></span>}>
               <Menu.Item key='data'><Link to={'/role/data'}>Data</Link></Menu.Item>
               <Menu.Item key='menu'><Link to={'/role/menu'}>Menu</Link></Menu.Item>
+            </Menu.SubMenu>
+            <Menu.SubMenu key="map" title={<span><Icon type='solution' /><span>Map</span></span>}>
+              <Menu.Item key="base"><Link to={'/map/base'}>Base</Link></Menu.Item>
+              <Menu.Item key="mapv"><Link to={'/map/mapv'}>Mapv</Link></Menu.Item>
+            </Menu.SubMenu>
+            <Menu.SubMenu key="echarts" title={<span><Icon type='solution' /><span>Echarts</span></span>}>
+              <Menu.Item key="samples"><Link to={'/echarts/samples'}>Samples</Link></Menu.Item>
             </Menu.SubMenu>
             <Menu.Item key="setting">
               <Link to={'/setting'}>
@@ -88,13 +99,49 @@ class App extends Component {
     })
   }
 
+  onClick = ({ item, key, keyPath }) => {
+    keyPath = keyPath && keyPath.reverse();
+
+    const crumb = {
+      keyPath: keyPath,
+      openKeys: keyPath.filter((item) => {
+        return !(item === key)
+      }),
+      selectedKeys: [key]
+    }
+
+    this.props.changeBreadCrumbData(crumb);
+  }
+
   logout = () => {
     console.log('logout');
   }
 
-  constructBreadCrumb = () => {
-
+  constructBreadCrumb = (menus, keyPath, links = []) => {
+    keyPath && keyPath.forEach((key, index) => {
+      menus = menus.filter((menu) => {
+        return menu.key === key
+      });
+      if (menus.length) {
+        links.push(menus[0].value);
+        if (menus[0].children) {
+          this.constructBreadCrumb(menus[0].children, keyPath.slice(index + 1), links);
+        }
+      }
+    })
+    if (links.length) {
+      return links.map((link, index) => {
+        return (<Breadcrumb.Item key={index}> {link} </Breadcrumb.Item>)
+      })
+    }
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    currentCrumb: state.handleBreadCrumb.currentCrumb,
+    state: state
+  }
+}
+
+export default connect(mapStateToProps, { changeBreadCrumbData, getCurrentBreadCrumbData })(App)
