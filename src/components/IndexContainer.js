@@ -1,5 +1,6 @@
 import React from 'react';
 import China from './dashboard/China';
+import Summary from './dashboard/Summary';
 
 export default class IndexContainer extends React.Component {
     constructVisitors = () => {
@@ -19,7 +20,7 @@ export default class IndexContainer extends React.Component {
     render() {
         return (
             <div style={styles.main}>
-                <div>Dashboard Content</div>
+                <Summary />
                 <div style={styles.map}>
                     <label>Country Visitors</label>
                     <div style={styles.content}>
@@ -37,23 +38,29 @@ export default class IndexContainer extends React.Component {
 }
 
 const styles = {
-    main: {},
+    main: {
+    },
     map: {
+        position: 'relative',
+        background: '#FFFFFF',
         width: '100%',
-        height: 'auto',
+        height: '100%',
         margin: '5px 0'
     },
     content: {
+        position: 'relative',
         background: 'green',
         width: '100%',
-        ul:{
-            lineType:'none'
+        height:'100%',
+        ul: {
+            lineType: 'none'
         }
     },
     left: {
-        width: '60%', float: 'left'
+        width: '70%', float: 'left'
     },
     right: {
-        width: '40%', float: 'left'
+        position: 'relative',
+        width: '30%', float: 'left'
     }
 }

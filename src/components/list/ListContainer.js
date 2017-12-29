@@ -99,8 +99,8 @@ class ListContainer extends React.PureComponent {
         console.log(results);
 
         return (
-            <div>
-                <Table rowKey={'name'} columns={this.constructColumns()} dataSource={results} />
+            <div style={styles.container}>
+                <Table style={styles.list} rowKey={'name'} columns={this.constructColumns()} dataSource={results} />
             </div>
         )
     }
@@ -116,3 +116,12 @@ export default connect(state => {
         results: state.handleList.results
     }
 }, { getList, deleteListItem })(ListContainer);
+
+const styles = {
+    container: {
+        background: '#FFFFFF'
+    },
+    list: {
+        padding: 10
+    }
+}

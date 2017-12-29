@@ -83,7 +83,7 @@ class App extends Component {
               <Breadcrumb.Item><Icon type="home"/></Breadcrumb.Item>
               {this.constructBreadCrumb(menus, (obj && obj.keyPath))}
             </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 280 }}>
+            <div style={{ padding: 0, background: '', minHeight: 280 }}>
               {this.props.children}
             </div>
           </Content>
