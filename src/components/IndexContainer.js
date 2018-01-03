@@ -1,6 +1,7 @@
 import React from 'react';
 import China from './dashboard/China';
 import Summary from './dashboard/Summary';
+import Trend from './dashboard/Trend';
 
 export default class IndexContainer extends React.Component {
     constructVisitors = () => {
@@ -21,6 +22,7 @@ export default class IndexContainer extends React.Component {
         return (
             <div style={styles.main}>
                 <Summary />
+                <Trend />
                 <div style={styles.map}>
                     <label>Country Visitors</label>
                     <div style={styles.content}>
@@ -51,7 +53,7 @@ const styles = {
         position: 'relative',
         background: 'green',
         width: '100%',
-        height:'100%',
+        height: '100%',
         ul: {
             lineType: 'none'
         }

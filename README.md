@@ -11,8 +11,13 @@ React Admin
 A frontend Framework for building admin applications on top of Restful API, using React, Antd, Map, Echarts.
 
 ## Features
-1.Based on the actual project.
-2.
+* Based on the actual project.
+* To provide background admin system with common scenarios, based Antd UI design language.
+* Include actual Map, charts, schedule and so on.
 
 ## Installation
+
+
+## License
+React Admin is licensed under the [MIT Licence](https://github.com/marmelab/admin-on-rest/blob/master/LICENSE.md).
 
