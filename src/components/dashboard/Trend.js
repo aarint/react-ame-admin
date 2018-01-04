@@ -1,16 +1,19 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import echarts from 'echarts';
+import Calendar from './Calendar';
 
 export default class Trend extends React.PureComponent {
     render() {
         return (
             <Row gutter={12} style={styles.container}>
                 <Col span={12}>
-                    <div id='trendChart' style={Object.assign({}, styles.item, { width: 'auto',height:'300px' })}>Visitors</div>
+                    <div id='trendChart' style={Object.assign({}, styles.item, { width: 'auto', height: '300px' })}>Visitors</div>
                 </Col>
                 <Col span={12}>
-                    <div id='' style={Object.assign({}, styles.item, { width: 'auto',height:'300px' })}>Schedule</div>
+                    <div id='' style={Object.assign({}, styles.item, { width: 'auto', height: '300px' })}>
+                        <Calendar />
+                    </div>
                 </Col>
             </Row>
         )
@@ -24,9 +27,9 @@ export default class Trend extends React.PureComponent {
 
     constructTrendOption = () => {
         const option = {
-            backgroundColor: '#394056',
+            backgroundColor: '#ffffff',
             title: {
-                text: '请求数',
+                text: '',
                 textStyle: {
                     fontWeight: 'normal',
                     fontSize: 16,
@@ -47,11 +50,11 @@ export default class Trend extends React.PureComponent {
                 itemWidth: 14,
                 itemHeight: 5,
                 itemGap: 13,
-                data: ['移动', '电信', '联通'],
+                data: ['old', 'new', 'other'],
                 right: '4%',
                 textStyle: {
                     fontSize: 12,
-                    color: '#F1F1F3'
+                    color: '#57617B'
                 }
             },
             grid: {
@@ -85,15 +88,15 @@ export default class Trend extends React.PureComponent {
                 position: 'bottom',
                 offset: 20,
                 data: ['', '', '', '', '', '', '', '', '', '', {
-                    value: '周六',
+                    value: '',
                     textStyle: {
                         align: 'left'
                     }
-                }, '周日']
+                }, '']
             }],
             yAxis: [{
                 type: 'value',
-                name: '单位（%）',
+                name: 'rate(%)',
                 axisTick: {
                     show: false
                 },
@@ -110,12 +113,12 @@ export default class Trend extends React.PureComponent {
                 },
                 splitLine: {
                     lineStyle: {
-                        color: '#57617B'
+                        color: '#F1F1F3'
                     }
                 }
             }],
             series: [{
-                name: '移动',
+                name: 'old',
                 type: 'line',
                 smooth: true,
                 symbol: 'circle',
@@ -149,7 +152,7 @@ export default class Trend extends React.PureComponent {
                 },
                 data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122]
             }, {
-                name: '电信',
+                name: 'new',
                 type: 'line',
                 smooth: true,
                 symbol: 'circle',
@@ -183,7 +186,7 @@ export default class Trend extends React.PureComponent {
                 },
                 data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150]
             }, {
-                name: '联通',
+                name: 'other',
                 type: 'line',
                 smooth: true,
                 symbol: 'circle',
