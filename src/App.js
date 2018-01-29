@@ -15,7 +15,6 @@ class App extends Component {
     collapsed: false,
     menus: [
       { key: 'list', value: 'List' },
-      { key: 'role', value: 'Role', children: [{ key: 'data', value: 'Data' }, { key: 'menu', value: 'Menu' }] },
       { key: 'map', value: 'Map', children: [{ key: 'baidu', value: 'Baidu' }, { key: 'google', value: 'Google' }] },
       { key: 'echarts', value: 'Echarts', children: [{ key: 'samples', value: 'Samples' }] },
       { key: 'auth', value: 'Auth', children: [{ key: 'platform', value: 'Platform' }] },
@@ -51,10 +50,6 @@ class App extends Component {
             </Menu.SubMenu>
             <Menu.SubMenu key="echarts" title={<span><Icon type='area-chart' /><span>Echarts</span></span>}>
               <Menu.Item key="samples"><Link to={'/echarts/samples'}>Samples</Link></Menu.Item>
-            </Menu.SubMenu>
-            <Menu.SubMenu key="role" title={<span><Icon type='solution'/><span>Role</span></span>}>
-              <Menu.Item key='data'><Link to={'/role/data'}>Data</Link></Menu.Item>
-              <Menu.Item key='menu'><Link to={'/role/menu'}>Menu</Link></Menu.Item>
             </Menu.SubMenu>
             <Menu.Item key="setting">
               <Link to={'/setting'}>
