@@ -150,7 +150,7 @@ export default class China extends Component {
     }
 
     render() {
-        return (<div style={styles.home} id="homeChart"></div>)
+        return (<div className="box" style={styles.home} id="homeChart"></div>)
     }
 }
 

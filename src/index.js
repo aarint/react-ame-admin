@@ -31,11 +31,11 @@ ReactDOM.render(
                 <Route path={'/role/menu'} name='RoleMenu' getComponent={(location, cb) => {
                     import('./components/role/MenuContainer').then(loadRoute(cb, false)).catch(errorLoading)
                 }} />
-                <Route path={'/map/base'} name='MapBase' getComponent={(location, cb) => {
-                    import('./components/map/BaseContainer').then(loadRoute(cb, false)).catch(errorLoading)
+                <Route path={'/map/baidu'} name='MapBaidu' getComponent={(location, cb) => {
+                    import('./components/map/BaiduContainer').then(loadRoute(cb, false)).catch(errorLoading)
                 }} />
-                <Route path={'/map/mapv'} name='MapMapv' getComponent={(location, cb) => {
-                    import('./components/map/MapvContainer').then(loadRoute(cb, false)).catch(errorLoading)
+                <Route path={'/map/google'} name='MapGoogle' getComponent={(location, cb) => {
+                    import('./components/map/GoogleContainer').then(loadRoute(cb, false)).catch(errorLoading)
                 }} />
                 <Route path={'/echarts/samples'} name='EchartsSamples' getComponent={(location, cb) => {
                     import('./components/echarts/SamplesContainer').then(loadRoute(cb, false)).catch(errorLoading)

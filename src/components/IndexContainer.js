@@ -32,7 +32,7 @@ export default class IndexContainer extends React.Component {
                             <China />
                         </Col>
                         <Col span={6}>
-                            <ul style={{ height: '500px', background: '#FFFFFF' }}>{this.constructVisitors()}</ul>
+                            <ul className="box" style={{ height: '500px', background: '#FFFFFF' }}>{this.constructVisitors()}</ul>
                         </Col>
                     </Row>
                 </div>

@@ -16,7 +16,7 @@ class App extends Component {
     menus: [
       { key: 'list', value: 'List' },
       { key: 'role', value: 'Role', children: [{ key: 'data', value: 'Data' }, { key: 'menu', value: 'Menu' }] },
-      { key: 'map', value: 'Map', children: [{ key: 'base', value: 'Base' }, { key: 'mapv', value: 'Mapv' }] },
+      { key: 'map', value: 'Map', children: [{ key: 'baidu', value: 'Baidu' }, { key: 'google', value: 'Google' }] },
       { key: 'echarts', value: 'Echarts', children: [{ key: 'samples', value: 'Samples' }] },
       { key: 'auth', value: 'Auth', children: [{ key: 'platform', value: 'Platform' }] },
       { key: 'setting', value: 'Setting' }
@@ -46,8 +46,8 @@ class App extends Component {
               <Link to={'/list'}><Icon type="table" /><span>List</span></Link>
             </Menu.Item>
             <Menu.SubMenu key="map" title={<span><Icon type='global'/><span>Map</span></span>}>
-              <Menu.Item key="base"><Link to={'/map/base'}>Base</Link></Menu.Item>
-              <Menu.Item key="mapv"><Link to={'/map/mapv'}>Mapv</Link></Menu.Item>
+              <Menu.Item key="baidu"><Link to={'/map/baidu'}>Baidu</Link></Menu.Item>
+              <Menu.Item key="google"><Link to={'/map/google'}>Google</Link></Menu.Item>
             </Menu.SubMenu>
             <Menu.SubMenu key="echarts" title={<span><Icon type='area-chart' /><span>Echarts</span></span>}>
               <Menu.Item key="samples"><Link to={'/echarts/samples'}>Samples</Link></Menu.Item>
