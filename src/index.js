@@ -25,12 +25,6 @@ ReactDOM.render(
                 <Route path={'/list'} name='List' getComponent={(location, cb) => {
                     import('./components/list/ListContainer').then(loadRoute(cb, false)).catch(errorLoading)
                 }} />
-                <Route path={'/role/data'} name='RoleData' getComponent={(location, cb) => {
-                    import('./components/role/DataContainer').then(loadRoute(cb, false)).catch(errorLoading)
-                }} />
-                <Route path={'/role/menu'} name='RoleMenu' getComponent={(location, cb) => {
-                    import('./components/role/MenuContainer').then(loadRoute(cb, false)).catch(errorLoading)
-                }} />
                 <Route path={'/map/baidu'} name='MapBaidu' getComponent={(location, cb) => {
                     import('./components/map/BaiduContainer').then(loadRoute(cb, false)).catch(errorLoading)
                 }} />
