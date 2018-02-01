@@ -13,7 +13,8 @@ A frontend Framework for building admin applications on top of Restful API, usin
 ## Features
 * Based on the actual project.
 * To provide background admin system with common scenarios, based Antd UI design language.
-* Include actual Map, charts, schedule and so on.
+* To provide the Baidu Map visual demo that depends on the react-bmap component.
+* Include actual Charts, schedule and so on.
 
 ## Installation
 
