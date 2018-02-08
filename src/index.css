@@ -11,3 +11,16 @@ body {
 ul li {
     list-style: none;
 }
+
+.week-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.week-info .week-day {
+    width: 14%;
+    text-align: right;
+    font-size: 12px;
+    padding-right: 5px;
+}

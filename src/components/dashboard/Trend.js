@@ -8,10 +8,10 @@ export default class Trend extends React.PureComponent {
         return (
             <Row gutter={12} style={styles.container}>
                 <Col span={12}>
-                    <div id='trendChart' className="box" style={Object.assign({}, styles.item, { width: 'auto', height: '300px' })}>Visitors</div>
+                    <div id='trendChart' className="box" style={Object.assign({}, styles.item, { width: 'auto', height: '375px' })}>Visitors</div>
                 </Col>
                 <Col span={12}>
-                    <div id='' className="box" style={Object.assign({}, styles.item, { width: 'auto', height: '300px' })}>
+                    <div id='' className="box" style={Object.assign({}, styles.item, { width: 'auto', height: '375px' })}>
                         <Calendar />
                     </div>
                 </Col>
@@ -230,7 +230,7 @@ const styles = {
     container: {
         marginBottom: '16px',
         textAlign: 'center',
-        height: '300px'
+        height: '375px'
     },
     item: {
         background: '#FFFFFF'

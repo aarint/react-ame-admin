@@ -12,7 +12,7 @@ const { Header, Footer, Sider, Content } = Layout;
 
 class App extends Component {
   state = {
-    collapsed: false,
+    collapsed: true,
     menus: [
       { key: 'list', value: 'List' },
       { key: 'map', value: 'Map', children: [{ key: 'baidu', value: 'Baidu' }, { key: 'google', value: 'Google' }] },
