@@ -109,7 +109,6 @@ class ListContainer extends React.PureComponent {
         return (
             <div style={styles.container}>
                 <Table style={styles.list} rowKey={'name'} columns={this.constructColumns()} dataSource={results} />
-
                 <Modal />
             </div>
         )

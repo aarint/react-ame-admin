@@ -44,7 +44,7 @@ class App extends Component {
             <Menu.Item key="list">
               <Link to={'/list'}><Icon type="table" /><span>List</span></Link>
             </Menu.Item>
-            <Menu.SubMenu key="map" title={<span><Icon type='global'/><span>Map</span></span>}>
+            <Menu.SubMenu key="map" title={<span><Icon type='global' /><span>Map</span></span>}>
               <Menu.Item key="baidu"><Link to={'/map/baidu'}>Baidu</Link></Menu.Item>
               <Menu.Item key="google"><Link to={'/map/google'}>Google</Link></Menu.Item>
             </Menu.SubMenu>
@@ -62,10 +62,13 @@ class App extends Component {
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
             <Icon className="trigger" type={collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
-            <div style={{ float: 'right', marginRight: 16 }}>
-              {
-                //this.initUserInfo(this.props.state.requestUserInfo.data)
-              }
+
+            <div style={{ float: 'right', marginRight: 16, display: 'flex', alignItems: 'center' }}>
+              <div style={{ width: 50, height: 50, lineHeight: '50px', textAlign: 'center', fontSize: 16, color: '#FFFFFF', float: 'left', borderRadius: '50%', background: 'silver' }}>
+                CS
+                {/* <img src='' style={{ width: 50, height: 50, borderRadius: '50%'}} /> */}
+              </div>
+
               <span style={{ width: 16, display: 'inline-block' }}></span>
 
               <form action={URL_POST_PLATFORM_LOGOUT} name="logform" style={{ display: 'inline-block' }}>
@@ -74,8 +77,8 @@ class App extends Component {
             </div>
           </Header>
           <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0',color:'#000000' }} separator=">">
-              <Breadcrumb.Item><Icon type="home"/></Breadcrumb.Item>
+            <Breadcrumb style={{ margin: '16px 0', color: '#000000' }} separator=">">
+              <Breadcrumb.Item><Icon type="home" /></Breadcrumb.Item>
               {this.constructBreadCrumb(menus, (obj && obj.keyPath))}
             </Breadcrumb>
             <div style={{ padding: 0, background: '', minHeight: 280 }}>

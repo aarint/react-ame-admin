@@ -31,11 +31,15 @@ export default class Day extends React.PureComponent {
             items.push(<li style={styles.detail} key="2">{`${events.length - 2} more...`}</li>);
         } else {
             items = events.map((item, index) => {
-                return <li style={styles.detail} key="1">{item}</li>
+                return <li style={styles.detail} key={index}>{item}</li>
             })
         }
 
         return items;
+    }
+
+    onCreateEvent = () => {
+        console.log('create new event');
     }
 }
 
