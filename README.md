@@ -17,6 +17,28 @@ A frontend Framework for building admin applications on top of Restful API, usin
 * Include actual Charts, Calendar and so on.
 
 ## Installation
+1.Download or clone code.
+
+2.Install dependency modules.
+```js
+npm install
+```
+
+3.Start project.
+```js
+npm start
+```
+
+## Screen Shot
+### Dashboard
+![shot](https://raw.githubusercontent.com/fachilles/fachilles.github.io/master/static/imgs/react-admin/react-admin-1.png)   
+
+### Baidu Map
+![shot](https://raw.githubusercontent.com/fachilles/fachilles.github.io/master/static/imgs/react-admin/react-admin-2.png)
+
+### Echarts
+![shot](https://raw.githubusercontent.com/fachilles/fachilles.github.io/master/static/imgs/react-admin/react-admin-3.png)
+
 
 
 ## License
