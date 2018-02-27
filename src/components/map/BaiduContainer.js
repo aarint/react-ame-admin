@@ -2,8 +2,6 @@ import React from 'react';
 import { Map, NavigationControl, MapTypeControl, ScaleControl, OverviewMapControl, MapvLayer } from 'react-bmap';
 import { Switch } from 'antd';
 
-
-
 export default class BaiduContainer extends React.Component {
     constructor(props) {
         super(props);

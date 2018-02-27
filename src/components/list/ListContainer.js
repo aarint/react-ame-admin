@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Icon, Divider, Popconfirm, message, Modal } from 'antd';
+import { Table, Icon, Popconfirm, message, Modal } from 'antd';
 import { connect } from 'react-redux';
 import { getList, deleteListItem } from '../../redux/actions/List';
 

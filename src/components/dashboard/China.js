@@ -26,10 +26,10 @@ export default class China extends Component {
     }
 
     initHome() {
-        let citys = this.props.polyData || [];
+        //let citys = this.props.polyData || [];
 
         let data = [];
-        for (let c of citys) {
+        //for (let c of citys) {
             // let val = i?10:20;
             // let city = utilCityCenter.getCenterByCityName(c.polygonName);
             // let macd = c.macro?c.macro:null
@@ -41,7 +41,7 @@ export default class China extends Component {
             //     macd:macd,
             //     cid:c.code
             // })
-        }
+        //}
 
         let convertData = function (data) {
             var res = [];
