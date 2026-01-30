@@ -1,0 +1,1 @@
+import{R as e,j as o}from"./index-B0mPODI2.js";class r extends e.Component{render(){return o.jsx("div",{style:{padding:20,background:"#fff"},children:"Google Map Visual (placeholder – add Google Maps SDK to enable)"})}}export{r as default};
