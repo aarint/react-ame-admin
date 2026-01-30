@@ -3,9 +3,11 @@ import Line from './charts/Line';
 import Pie from './charts/Pie';
 import Bar from './charts/Bar';
 import Radar from './charts/Radar';
+import KLine from './charts/KLine';
 
 const charts = [
   { type: 'line', title: 'Tooltip & DataZoom' },
+  { type: 'kline', title: 'Candlestick' },
   { type: 'radar', title: 'Basic Radar' },
   { type: 'pie', title: 'Basic Pie' },
   { type: 'bar', title: 'Basic Bar' },
@@ -21,6 +23,8 @@ export default class SamplesContainer extends React.Component {
     switch (type) {
       case 'line':
         return <Line />;
+      case 'kline':
+        return <KLine />;
       case 'bar':
         return <Bar />;
       case 'pie':
