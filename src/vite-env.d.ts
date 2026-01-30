@@ -5,6 +5,8 @@ interface ImportMetaEnv {
   readonly PROD: boolean;
   readonly DEV: boolean;
   readonly BASE_URL: string;
+  /** Backend API base URL, e.g. http://localhost:8080 */
+  readonly VITE_API_BASE_URL?: string;
   [key: string]: string | boolean | undefined;
 }
 

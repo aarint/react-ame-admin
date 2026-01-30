@@ -4,6 +4,16 @@ body {
     font-family: sans-serif;
 }
 
+/* Auth page loading placeholder (matches auth.css background) */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(165deg, #0f172a 0%, #1e293b 40%, #334155 100%);
+  color: #fff;
+}
+
 .box {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 }

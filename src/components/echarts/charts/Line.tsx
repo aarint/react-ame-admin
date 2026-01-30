@@ -44,7 +44,7 @@ export default class Line extends React.Component {
         text: 'Touch Screen Tooltip & DataZoom Demo',
         subtext: '"tooltip" and "dataZoom" on mobile device',
       },
-      legend: { top: 'bottom', data: ['意向'] },
+      legend: { top: 'bottom', data: ['Intent'] },
       tooltip: {
         triggerOn: 'none',
         position: (pt: number[]) => [pt[0], 130],
@@ -86,7 +86,7 @@ export default class Line extends React.Component {
       dataZoom: [{ type: 'inside', throttle: 50 }],
       series: [
         {
-          name: '模拟数据',
+          name: 'Sample data',
           type: 'line',
           smooth: true,
           symbol: 'circle',
@@ -103,7 +103,7 @@ export default class Line extends React.Component {
           data,
         },
         {
-          name: '模拟数据',
+          name: 'Sample data',
           type: 'line',
           smooth: true,
           stack: 'a',

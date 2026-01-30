@@ -50,9 +50,9 @@ export default class Views extends React.PureComponent<ViewsProps> {
       },
       series: [
         {
-          name: '视频广告',
+          name: 'Video Ads',
           type: 'bar',
-          stack: '总量',
+          stack: 'Total',
           label: { show: true, position: 'insideRight' },
           data: [150, 212, 201, 154, 190, 330, 410],
         },

@@ -210,7 +210,7 @@ class App extends Component<AppProps, AppState> {
               <Outlet />
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>@fachilles</Footer>
+          <Footer style={{ textAlign: 'center' }}>@AARINT</Footer>
         </Layout>
       </Layout>
     );

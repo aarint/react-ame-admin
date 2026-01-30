@@ -8,6 +8,7 @@ import {
   deleteListItemError,
   type ListItem,
 } from '../actions/List';
+import { getDemoList } from '../../api/demo';
 
 function getMockResults(_params?: Record<string, unknown>): ListItem[] {
   return [
@@ -26,7 +27,7 @@ function getMockResults(_params?: Record<string, unknown>): ListItem[] {
     { name: 'Atom', age: 33, sex: 'male', address: '' },
     { name: 'April', age: 28, sex: 'fmale', address: '' },
     { name: 'Chaos', age: 30, sex: 'fmale', address: 'Canada' },
-    { name: 'FAchilles', age: 30, sex: 'fmale', address: 'USA' },
+    { name: 'Aaron', age: 30, sex: 'fmale', address: 'USA' },
     { name: 'Andy', age: 30, sex: 'fmale', address: 'Canada' },
     { name: 'Frank', age: 30, sex: 'fmale', address: 'Canada' },
     { name: 'David', age: 30, sex: 'fmale', address: 'Canada' },
@@ -46,12 +47,23 @@ function deleteItem(_params: Record<string, unknown>): Promise<string> {
 
 export function* getList(
   action: ReturnType<typeof getListAction>
-): Generator<unknown, void, ListItem[]> {
+): Generator<unknown, void, ListItem[] | { data?: ListItem[] }> {
   try {
+    const res = yield call(getDemoList, action.params as { page?: number; pageSize?: number } | undefined);
+    const data = res?.data;
+    if (Array.isArray(data) && data.length > 0) {
+      yield put(getListDone(data as ListItem[]));
+      return;
+    }
     const results = yield call(getMockResults, action.params);
-    yield put(getListDone(results));
+    yield put(getListDone(results as ListItem[]));
   } catch (ex) {
-    yield put(getListError(ex));
+    try {
+      const results = yield call(getMockResults, action.params);
+      yield put(getListDone(results as ListItem[]));
+    } catch (fallbackEx) {
+      yield put(getListError(ex));
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import App from './App';
@@ -16,12 +16,23 @@ const SamplesContainer = React.lazy(
 const SettingContainer = React.lazy(
   () => import('./components/setting/SettingContainer')
 );
+const Auth = React.lazy(() => import('./components/auth/Auth'));
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
+          <Route path="/login" element={
+            <React.Suspense fallback={<div className="auth-page"><div>Loading...</div></div>}>
+              <Auth />
+            </React.Suspense>
+          } />
+          <Route path="/register" element={
+            <React.Suspense fallback={<div className="auth-page"><div>Loading...</div></div>}>
+              <Auth />
+            </React.Suspense>
+          } />
           <Route path="/" element={<App />}>
             <Route
               index
@@ -74,7 +85,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

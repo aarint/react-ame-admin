@@ -19,8 +19,8 @@ export default class Bar extends React.Component {
   constructOption = () => {
     if (!this.chart) return;
     const dataAxis = [
-      '点', '击', '柱', '子', '或', '者', '两', '指', '在', '触',
-      '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放',
+      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+      'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
     ];
     const data = [
       220, 182, 191, 234, 290, 330, 310, 123, 442, 321,
@@ -30,8 +30,8 @@ export default class Bar extends React.Component {
 
     const option = {
       title: {
-        text: '特性示例：渐变色 阴影 点击缩放',
-        subtext: 'Feature Sample: Gradient Color, Shadow, Click Zoom',
+        text: 'Feature Sample: Gradient, Shadow, Click Zoom',
+        subtext: 'Bar chart with gradient color and shadow',
       },
       xAxis: {
         data: dataAxis,

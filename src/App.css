@@ -23,17 +23,17 @@
     font-size: large;
 }
 
-/* 整体布局填满视口，左侧栏与内容区自适应高度 */
+/* Full viewport layout, sidebar and content adapt to height */
 .container {
     min-height: 100vh;
     width: 100%;
 }
 
-/* 左侧 Sider 占满视口高度，内部使用 flex 使菜单区域可滚动 */
+/* Left Sider height adapts to content (logo + menu) */
 .container .ant-layout-sider {
-    min-height: 100vh;
-    height: 100vh;
-    overflow: hidden;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
     display: flex;
     flex-direction: column;
 }
@@ -41,36 +41,41 @@
 .container .ant-layout-sider .ant-layout-sider-children {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    overflow: hidden;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
 }
 
-/* Logo 区域固定在上方 */
+/* Logo at top */
 .container .ant-layout-sider .logo {
     flex-shrink: 0;
 }
 
-/* 菜单区域占据剩余空间并可滚动 */
+/* Menu height follows content; scroll inside menu when too long (max 100vh) */
 .container .ant-layout-sider .ant-menu {
-    flex: 1;
+    flex: 0 1 auto;
+    max-height: calc(100vh - 64px);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-/* 右侧内层 Layout 占满剩余空间并纵向 flex */
+/* Right inner Layout fills remaining space, vertical flex; no horizontal scroll */
 .container.ant-layout-has-sider > .ant-layout {
     flex: 1;
     display: flex;
     flex-direction: column;
     min-width: 0;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* 右侧主内容区：占据剩余空间并可滚动 */
+/* Main content area: vertical scroll only, no horizontal scroll */
 .container .ant-layout-content {
     flex: 1;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     min-height: 0;
+    min-width: 0;
 }
 
 .container .logo {

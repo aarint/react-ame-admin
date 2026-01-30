@@ -20,7 +20,7 @@ export default class Pie extends React.Component {
     if (!this.chart) return;
     const option = {
       title: {
-        text: '某站点用户访问来源',
+        text: 'User Visit Sources',
         subtext: 'Demo Digital',
         left: 'center',
       },
@@ -31,20 +31,20 @@ export default class Pie extends React.Component {
       legend: {
         orient: 'vertical',
         left: 'left',
-        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
+        data: ['Direct', 'Email', 'Affiliate', 'Video', 'Search'],
       },
       series: [
         {
-          name: '访问来源',
+          name: 'Visit Source',
           type: 'pie',
           radius: '55%',
           center: ['50%', '60%'],
           data: [
-            { value: 335, name: '直接访问' },
-            { value: 310, name: '邮件营销' },
-            { value: 234, name: '联盟广告' },
-            { value: 135, name: '视频广告' },
-            { value: 1548, name: '搜索引擎' },
+            { value: 335, name: 'Direct' },
+            { value: 310, name: 'Email' },
+            { value: 234, name: 'Affiliate' },
+            { value: 135, name: 'Video' },
+            { value: 1548, name: 'Search' },
           ],
           itemStyle: {
             emphasis: {
